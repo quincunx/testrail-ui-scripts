@@ -13,11 +13,16 @@ $(document).ready(
       console.log("TestRail UI Script - Dashboard - Highlight active projects: Only Compact View is supported");
     } else {
       $('#content-inner > table > tbody  > tr').each(function() {
-	var $project = $(this);
-	var run_count = 0;
-	$project.children('td:nth-child(3)').each(function() { run_count = $(this).children('strong:nth-child(3)').html(); });
-	if (run_count > 0) { $project.css("background-color", "#D1E6FD"); }
+        var $project = $(this);
+        var run_count = 0;
+        $project.children('td:nth-child(3)').each(function() { run_count = $(this).children('strong:nth-child(3)').html(); });
+        if (run_count > 0) { $project.addClass("project-active"); }
       });
     }
   }
 );
+
+css:
+.project-active{
+  background:#FFCC33
+}
