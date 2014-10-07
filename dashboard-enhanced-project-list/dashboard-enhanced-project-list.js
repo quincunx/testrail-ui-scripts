@@ -13,12 +13,11 @@ var TimestampNow = Date.now();
 $(document).ready(
   function() {
     // Check if Compact View is being displayed
-    if ($('span.content-header-icon:nth-child(1) > a:nth-child(1) > img:nth-child(1)').attr('src').indexOf("Inactive") >= 0) {
-      console.log("TestRail UI Script - Dashboard - Enhanced project list: Only Compact View is supported"); return;
+    if ($('span.content-header-icon:nth-child(1) > a:nth-child(1) > img:nth-child(1)').attr('src').indexOf("Inactive") == -1) {
+      // Add and show a progress animation in the projects table header, will be hidden when sorted table is shown 
+      $('#content-inner > h1.top').append(' <span style="display: inline;" id="projectsBusy"><img src="images/animations/progressInline.gif" alt="" height="9" width="16"></span>'); 
+      DashboardGetProjectInfo();
     }
-    // Add and show a progress animation in the projects table header, will be hidden when sorted table is shown 
-    $('#content-inner > h1.top').append(' <span style="display: inline;" id="projectsBusy"><img src="images/animations/progressInline.gif" alt="" height="9" width="16"></span>'); 
-    DashboardGetProjectInfo();
   }
 );
 
@@ -79,7 +78,7 @@ function MergeRowWithProjectInfo(ProjectID, $ProjectRow) {
     },
     error: function(error)
     {
-      console.log(error);
+      // console.log(error);
     }
   });
 }

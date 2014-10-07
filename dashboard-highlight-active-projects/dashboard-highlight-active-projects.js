@@ -9,9 +9,7 @@ js:
 $(document).ready(
   function() {
     // Check if Compact View is being displayed
-    if ($('span.content-header-icon:nth-child(1) > a:nth-child(1) > img:nth-child(1)').attr('src').indexOf("Inactive") >= 0) {
-      console.log("TestRail UI Script - Dashboard - Highlight active projects: Only Compact View is supported");
-    } else {
+    if ($('span.content-header-icon:nth-child(1) > a:nth-child(1) > img:nth-child(1)').attr('src').indexOf("Inactive") == -1) {
       $('#content-inner > table > tbody  > tr').each(function() {
         var $project = $(this);
         var run_count = 0;
