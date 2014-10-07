@@ -67,7 +67,7 @@ function MergeRowWithProjectInfo(ProjectID, $ProjectRow) {
       $.each(data, function(idx, obj) { if (obj.due_on == null) { obj.due_on = "9999999999"; }; } );
       // Sort milestones by due date
       data.sort(function(a, b) { return a.due_on - b.due_on; } );
-      // If there are milestone, check if they are overdue. Only the first milestone is being checked.
+      // If there are milestones, check if they are overdue. Only the first milestone is being checked.
       if (!jQuery.isEmptyObject(data)) { 
 	if (data[0].due_on*1000 <= TimestampNow) { $ProjectRow.addClass("overdue"); }
 	ProjectsList.push( { project_id:ProjectID, due_on:data[0].due_on, tr: $ProjectRow } ); 
